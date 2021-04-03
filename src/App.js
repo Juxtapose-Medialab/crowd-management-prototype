@@ -15,6 +15,8 @@ function App() {
   const [ countPeople, setCountPeople ] = useState(0); // 1 because it starts with false which is -1
   const [ foundPerson, setFoundPerson ] = useState(false);
 
+  let countPeoplee = 0;
+
   // Main function
   const runCoco = async () => {
     // 3. TODO - Load network
@@ -68,10 +70,8 @@ function App() {
       for (let i = 0; i < obj.length; i++) {
         if (obj[i].class == "person") {
           // setFoundPerson(true);
-          setCountPeople(obj.length);
-        } else {
-          // setFoundPerson(false);
-          setCountPeople(0);
+          const result = obj.filter(object => object.class === "person");
+          setCountPeople(result.length);
         }
       }
 
