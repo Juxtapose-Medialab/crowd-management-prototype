@@ -12,8 +12,8 @@ function App() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
 
-const [ countPeople, setCountPeople ] = useState(1);
-const [ foundPerson, setFoundPerson ] = useState(false);
+  const [ countPeople, setCountPeople ] = useState(0); // 1 because it starts with false which is -1
+  const [ foundPerson, setFoundPerson ] = useState(false);
 
   // Main function
   const runCoco = async () => {
@@ -27,17 +27,17 @@ const [ foundPerson, setFoundPerson ] = useState(false);
   };
 
   useEffect(() => {
-    console.log(foundPerson)
+    // console.log(foundPerson)
          // 1: If found person = true, increment peopleCount
-    if(foundPerson) {
-      setCountPeople(countPeople + 1);
-      // return;
-    }
+    // if(foundPerson) {
+    //   setCountPeople(countPeople + 1);
+    //   // return;
+    // }
 
-    if(!foundPerson){
-      setCountPeople(countPeople - 1);
-      // return;
-    }
+    // if(!foundPerson){
+    //   setCountPeople(countPeople - 1);
+    //   // return;
+    // }
   }, [ foundPerson ])
 
   const detect = async (net) => {
@@ -67,9 +67,11 @@ const [ foundPerson, setFoundPerson ] = useState(false);
 
       for (let i = 0; i < obj.length; i++) {
         if (obj[i].class == "person") {
-          setFoundPerson(true);
+          // setFoundPerson(true);
+          setCountPeople(obj.length);
         } else {
-          setFoundPerson(false);
+          // setFoundPerson(false);
+          setCountPeople(0);
         }
       }
 
