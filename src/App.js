@@ -12,16 +12,33 @@ function App() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
 
+const [ countPeople, setCountPeople ] = useState(1);
+const [ foundPerson, setFoundPerson ] = useState(false);
+
   // Main function
   const runCoco = async () => {
-    // 3. TODO - Load network 
+    // 3. TODO - Load network
     const net = await cocossd.load();
-    
+
     //  Loop and detect hands
     setInterval(() => {
       detect(net);
     }, 10);
   };
+
+  useEffect(() => {
+    console.log(foundPerson)
+         // 1: If found person = true, increment peopleCount
+    if(foundPerson) {
+      setCountPeople(countPeople + 1);
+      // return;
+    }
+
+    if(!foundPerson){
+      setCountPeople(countPeople - 1);
+      // return;
+    }
+  }, [ foundPerson ])
 
   const detect = async (net) => {
     // Check data is available
@@ -46,6 +63,18 @@ function App() {
       // 4. TODO - Make Detections
       const obj = await net.detect(video);
 
+      // let foundPerson = false;
+
+      for (let i = 0; i < obj.length; i++) {
+        if (obj[i].class == "person") {
+          setFoundPerson(true);
+        } else {
+          setFoundPerson(false);
+        }
+      }
+
+     //2: Use setTimeOut to change foundPerson to false.
+
       // Draw mesh
       const ctx = canvasRef.current.getContext("2d");
 
@@ -54,14 +83,16 @@ function App() {
     }
   };
 
+
   useEffect(()=>{runCoco()},[]);
 
   return (
     <div className="App">
+      <p>Amount of people: { countPeople } </p>
       <header className="App-header">
         <Webcam
           ref={webcamRef}
-          muted={true} 
+          muted={true}
           style={{
             position: "absolute",
             marginLeft: "auto",
