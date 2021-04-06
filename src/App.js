@@ -89,20 +89,22 @@ function App() {
 
   return (
     <div className="App">
-      <p>Amount of people: { countPeople } </p>
+      <p className="App__title">Amount of people: { countPeople } </p>
       <div className="App__container">
         <Webcam
           ref={webcamRef}
           muted={true}
           style={{
             position: "absolute",
-            marginLeft: "auto",
-            marginRight: "auto",
-            left: 0,
+            // marginLeft: "auto",
+            // marginRight: "auto",
+            top: "50%",
+            transform: "translateY(-50%)",
+            left: 100,
             right: 0,
             textAlign: "center",
             zindex: 9,
-            width: '50%',
+            width: '640',
             height: 480,
           }}
         />
@@ -111,13 +113,15 @@ function App() {
           ref={canvasRef}
           style={{
             position: "absolute",
-            marginLeft: "auto",
-            marginRight: "auto",
-            left: 0,
+            // marginLeft: "auto",
+            // marginRight: "auto",
+            top: "50%",
+            transform: "translateY(-50%)",
+            left: 100,
             right: 0,
             textAlign: "center",
             zindex: 8,
-            width: '50%',
+            width: '640',
             height: 480,
           }}
         />
