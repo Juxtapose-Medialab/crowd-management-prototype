@@ -15,9 +15,6 @@ function App() {
   const canvasRef = useRef(null);
 
   const [ countPeople, setCountPeople ] = useState(0); // 1 because it starts with false which is -1
-  const [ foundPerson, setFoundPerson ] = useState(false);
-
-  let countPeoplee = 0;
 
   // Main function
   const runCoco = async () => {
@@ -30,19 +27,19 @@ function App() {
     }, 10);
   };
 
-  useEffect(() => {
-    // console.log(foundPerson)
-         // 1: If found person = true, increment peopleCount
-    // if(foundPerson) {
-    //   setCountPeople(countPeople + 1);
-    //   // return;
-    // }
+  // useEffect(() => {
+  //   // console.log(foundPerson)
+  //        // 1: If found person = true, increment peopleCount
+  //   // if(foundPerson) {
+  //   //   setCountPeople(countPeople + 1);
+  //   //   // return;
+  //   // }
 
-    // if(!foundPerson){
-    //   setCountPeople(countPeople - 1);
-    //   // return;
-    // }
-  }, [ foundPerson ])
+  //   // if(!foundPerson){
+  //   //   setCountPeople(countPeople - 1);
+  //   //   // return;
+  //   // }
+  // }, [ foundPerson ])
 
   const detect = async (net) => {
     // Check data is available
@@ -126,7 +123,7 @@ function App() {
         />
       </header>
 
-      <Map />
+      <Map countPeople={ countPeople } />
     </div>
   );
 }
