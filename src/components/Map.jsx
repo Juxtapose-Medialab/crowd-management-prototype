@@ -10,9 +10,9 @@ export default function Map(props) {
     useEffect(() => {
         if(props.countPeople < 4) {
             setTest("#5BCC1B");
-        } else if(props.countPeople >= 4 && props.countPeople < 7) {
+        } else if(props.countPeople >= 4 && props.countPeople < 6) {
             setTest("#FF8C00");
-        } else if(props.countPeople >= 7) {
+        } else if(props.countPeople >= 6) {
             setTest("#FF0000");
         }
     }, [ props.countPeople ])

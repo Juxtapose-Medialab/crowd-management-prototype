@@ -90,7 +90,7 @@ function App() {
   return (
     <div className="App">
       <p>Amount of people: { countPeople } </p>
-      <header className="App-header">
+      <div className="App__container">
         <Webcam
           ref={webcamRef}
           muted={true}
@@ -102,7 +102,7 @@ function App() {
             right: 0,
             textAlign: "center",
             zindex: 9,
-            width: 640,
+            width: '50%',
             height: 480,
           }}
         />
@@ -117,13 +117,12 @@ function App() {
             right: 0,
             textAlign: "center",
             zindex: 8,
-            width: 640,
+            width: '50%',
             height: 480,
           }}
         />
-      </header>
-
-      <Map countPeople={ countPeople } />
+        <Map countPeople={ countPeople } />
+      </div>
     </div>
   );
 }

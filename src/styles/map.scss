@@ -5,6 +5,10 @@
     top: 127px;
 }
 
+.map__area-img path {
+    transition: fill 2s;
+}
+
 .map__area-img-wrapper {
     position: relative;
     width: 1239px;
@@ -14,3 +18,4 @@
 .map {
     background-color: pink;
 }
+
