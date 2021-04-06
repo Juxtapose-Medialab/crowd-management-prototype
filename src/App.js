@@ -8,6 +8,8 @@ import "./App.css";
 // 2. TODO - Import drawing utility here
 import { drawRect } from "./utilities";
 
+import Map from './components/Map'
+
 function App() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
@@ -123,6 +125,8 @@ function App() {
           }}
         />
       </header>
+
+      <Map />
     </div>
   );
 }
