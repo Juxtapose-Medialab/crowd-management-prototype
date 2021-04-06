@@ -1,10 +1,16 @@
 .map__area-img {
     width: 387px;
     position: absolute;
-    left: 410px;
+    left: 270px;
     top: 127px;
 }
 
-.map {
+.map__area-img-wrapper {
     position: relative;
+    width: 1239px;
+    margin: 0 auto;
+}
+
+.map {
+    background-color: pink;
 }
